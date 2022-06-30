@@ -91,6 +91,10 @@ extension Peripheral {
         return self.peripheralProxy.cbPeripheral.state
     }
     
+    public func mtu(for writeType: CBCharacteristicWriteType) -> Int {
+        return self.peripheralProxy.cbPeripheral.maximumWriteValueLength(for: writeType)
+    }
+    
     /// The underlying CBPeripheral services
     public var services: [CBService]? {
         return self.peripheralProxy.cbPeripheral.services
